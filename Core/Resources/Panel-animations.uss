@@ -1,0 +1,39 @@
+.offscreen-bot {
+    translate: 0% 102%;
+}
+
+.center {
+    translate: 0% 0%;
+}
+
+.offscreen-left {
+    translate: -102% 0%;
+}
+
+.offscreen-right {
+    translate: 102% 0%;
+}
+
+.offscreen-top {
+    translate: 0% -102%;
+}
+
+.transparent {
+    opacity: 0;
+}
+
+.opaque {
+    opacity: 1;
+}
+
+.animation-fast {
+    transition-property: opacity, translate;
+    transition-duration: 0.1s, 0.1s;
+    transition-timing-function: ease-in-out, ease-in-out;
+}
+
+.animation-normal {
+    transition-property: opacity, translate;
+    transition-duration: 1s, 1s;
+    transition-timing-function: ease-in-out, ease-in-out;
+}
