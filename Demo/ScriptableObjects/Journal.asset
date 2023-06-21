@@ -10,6 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96c7ab02e5328e24380e09a372917f7d, type: 3}
-  m_Name: JournalPlayer
+  m_Name: Journal
   m_EditorClassIdentifier: 
-  items: []
+  items:
+  - {fileID: 11400000, guid: ebbee1a95491abd429561aa1bf17b6e0, type: 2}
+  - {fileID: 11400000, guid: f2f9557b751f9b740af26aa07638653b, type: 2}

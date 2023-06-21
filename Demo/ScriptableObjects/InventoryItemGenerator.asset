@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1651e82ad9ae25044bb149c2150be61f, type: 3}
+  m_Name: InventoryItemGenerator
+  m_EditorClassIdentifier: 
+  collection: {fileID: 11400000, guid: f01aefe308ea2964c9c20943e61996c4, type: 2}
+  markableItemUI: {fileID: 9197481963319205126, guid: 109df5a9a67e9104ba3dd43d942e4cba, type: 3}
+  normalItemColor: {r: 1, g: 1, b: 1, a: 1}
+  markedItemColor: {r: 0.9339623, g: 0.92555016, b: 0.43614274, a: 1}
