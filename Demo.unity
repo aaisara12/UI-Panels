@@ -367,7 +367,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 795873742}
         m_TargetAssemblyTypeName: SimplePanelAnimator, Assembly-CSharp
-        m_MethodName: SlideInFromLeft
+        m_MethodName: SlideInFromBelow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

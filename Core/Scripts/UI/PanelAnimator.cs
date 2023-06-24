@@ -162,17 +162,13 @@ public class PanelAnimator : MonoBehaviour
     /// </summary>
     public void AnimateOpen(PanelPosition startPosition, PanelAnimationSpeed animationSpeed)
     {
-
-
-        // Perform main animation after reposition animation has occurred
-        System.Action OnFinishAnimation = () =>
-        {
-            AnimateVisuals(PanelPosition.CENTER, PanelVisibility.VISIBLE, animationSpeed);
-            OnOpenPanel?.Invoke();
-        };
-
-        // Reposition the panel to starting position
-        InstantUpdateVisuals(startPosition, PanelVisibility.INVISIBLE, OnFinishAnimation);
+        AnimateFull(
+            startPosition: startPosition,
+            startOpacity: PanelVisibility.INVISIBLE,
+            endPosition: PanelPosition.CENTER,
+            endOpacity: PanelVisibility.VISIBLE,
+            animationSpeed: animationSpeed,
+            onStartAnimationCallback: () => { OnOpenPanel?.Invoke(); });
     }
 
     /// <summary>
@@ -180,8 +176,31 @@ public class PanelAnimator : MonoBehaviour
     /// </summary>
     public void AnimateClose(PanelPosition endPosition, PanelAnimationSpeed animationSpeed)
     {
-        AnimateVisuals(endPosition, PanelVisibility.INVISIBLE, animationSpeed);
-        OnClosePanel?.Invoke();
+        AnimateFull(
+            startPosition: PanelPosition.CENTER,
+            startOpacity: PanelVisibility.VISIBLE,
+            endPosition: endPosition,
+            endOpacity: PanelVisibility.INVISIBLE,
+            animationSpeed: animationSpeed,
+            onStartAnimationCallback: () => { OnClosePanel?.Invoke(); });
+    }
+
+    /// <summary>
+    /// Base implementation for animating panel from one state to another
+    /// </summary>
+    private void AnimateFull(
+        PanelPosition startPosition, PanelVisibility startOpacity,
+        PanelPosition endPosition, PanelVisibility endOpacity,
+        PanelAnimationSpeed animationSpeed, System.Action onStartAnimationCallback = null)
+    {
+        System.Action OnFinishAnimation = () =>
+        {
+            AnimateVisuals(endPosition, endOpacity, animationSpeed);
+            onStartAnimationCallback?.Invoke();
+        };
+
+        // Reposition the panel to starting position
+        InstantUpdateVisuals(startPosition, startOpacity, OnFinishAnimation);
     }
 
 
@@ -199,9 +218,13 @@ public class PanelAnimator : MonoBehaviour
         ChangePosition(position);
         ChangeVisibility(opacity);
 
+        // HYPOTHESIS: Execute could possibly be scheduling callback for the exact same UI update frame
+        // as the above code, making it effectively overwrite it if they are changing the same data.
+        // For now, just add a delay, but this could break if the UI update happens at a slower rate than
+        // the delay.
 
         if (callback != null)
-            root.schedule.Execute(() => { callback.Invoke(); });
+            root.schedule.Execute(() => { callback.Invoke(); }).ExecuteLater(100);
     }
 
 
