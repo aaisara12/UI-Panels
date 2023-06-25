@@ -32,7 +32,7 @@ namespace UIPanels
         // USS Classes //
         /////////////////
 
-        const string ANIMATIONS_USS_PATH = "Panel-animations";
+        const string ANIMATIONS_USS_PATH = "uipanels-animations";
 
         // DESIGN CHOICE: Modularize parts of animation to enable mixing/mataching of
         // different parts to create custom animations. Also helps with understanding
