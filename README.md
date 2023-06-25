@@ -26,14 +26,3 @@ This project was tested for Unity 2021.3.16f1.
 
 - The "almanac" format refers to a custom UXML structure designed to contain the core controls of an alamanac-style UI like you might see in an RPG beastiary. This includes things like a central graphic, item list, and selected item title.
 - The demo is intended to showcase the majority of the package functionality, but to understand how to use the scripts, look at the source code in the scripts used to implement the demo.
-
-## TODO
-
-- ~~Create a repo for this package~~
-- ~~Instantiate all demo items and generators~~
-- ~~Create a demo script for opening and closing panels with number keys~~
-- ~~Place all demo scripts within the namespace `UIPanels.Demo` and others with `UIPanels`~~
-- ~~Clear out all unused files~~
-- ~~Write this doc~~
-- ~~Add version this demo has been tested for~~
-- Export the top-level folder to a package and save it with the repo
