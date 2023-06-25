@@ -37,4 +37,3 @@ This project was tested for Unity 2021.3.16f1.
 - ~~Write this doc~~
 - ~~Add version this demo has been tested for~~
 - Export the top-level folder to a package and save it with the repo
-- Create a command to force finish the current animation (set animation speed to instant?)
