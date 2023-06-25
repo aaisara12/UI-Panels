@@ -13,7 +13,7 @@ Here's how you work with the demo...
 - ~~Create a repo for this package~~
 - ~~Instantiate all demo items and generators~~
 - ~~Create a demo script for opening and closing panels with number keys~~
-- Place all demo scripts within the namespace `UIPanels.Demo`
+- Place all demo scripts within the namespace `UIPanels.Demo` and others with `UIPanels`
 - Clear out all unused files
 - Write this doc
 - Add version this demo has been tested for

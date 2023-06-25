@@ -1,30 +1,32 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-[CreateAssetMenu(menuName = "ScriptableObjects/Item UI Generators/Plain")]
-public class PlainItemUIGeneratorSO : ItemUIGeneratorSO
+namespace UIPanels.Demo
 {
-    // UI Tags (Inventory Item)
-    const string k_ItemName = "item-name";
-
-    [SerializeField] PlainItemCollectionSO plainItemCollectionSO = default;
-    [SerializeField] VisualTreeAsset plainItemUI = default;
-    public override List<ItemUIResult> GenerateUI()
+    [CreateAssetMenu(menuName = "ScriptableObjects/Item UI Generators/Plain")]
+    public class PlainItemUIGeneratorSO : ItemUIGeneratorSO
     {
-        List<ItemUIResult> results = new List<ItemUIResult>();
-        foreach(ItemSO item in plainItemCollectionSO.items)
+        // UI Tags (Inventory Item)
+        const string k_ItemName = "item-name";
+
+        [SerializeField] PlainItemCollectionSO plainItemCollectionSO = default;
+        [SerializeField] VisualTreeAsset plainItemUI = default;
+        public override List<ItemUIResult> GenerateUI()
         {
-            results.Add(new ItemUIResult{reference = item, ui = GenerateListItemUI(item)});
+            List<ItemUIResult> results = new List<ItemUIResult>();
+            foreach (ItemSO item in plainItemCollectionSO.items)
+            {
+                results.Add(new ItemUIResult { reference = item, ui = GenerateListItemUI(item) });
+            }
+            return results;
         }
-        return results;
-    }
 
-    private TemplateContainer GenerateListItemUI(ItemSO itemData)
-    {
-        TemplateContainer instance = plainItemUI.Instantiate();
-        instance.Q<Label>(k_ItemName).text = itemData.itemName;
-        return instance;
+        private TemplateContainer GenerateListItemUI(ItemSO itemData)
+        {
+            TemplateContainer instance = plainItemUI.Instantiate();
+            instance.Q<Label>(k_ItemName).text = itemData.itemName;
+            return instance;
+        }
     }
 }
