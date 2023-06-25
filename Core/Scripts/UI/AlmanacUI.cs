@@ -97,8 +97,6 @@ namespace UIPanels
             clickableItemList.Clear();
             m_ItemList.scrollOffset = Vector2.zero;
 
-            //bool isFirstItem = true;
-
             // Generate the item UIs
             List<ItemUIGeneratorSO.ItemUIResult> results = generator.GenerateUI();
 
